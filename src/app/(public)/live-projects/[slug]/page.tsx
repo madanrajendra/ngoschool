@@ -3,37 +3,11 @@ import { IndianRupee, Calendar, MapPin, CheckCircle, ArrowRight, Share2, Award, 
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
-  return [
-    { slug: "0" },
-    { slug: "1" },
-    { slug: "2" }
-  ];
-}
+export const dynamic = "force-dynamic";
 
 export default async function ProjectDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  // Demo handling as the dummy slug was index-based in my previous code
-  const isDemo = slug === "0" || slug === "1" || slug === "2";
-  
-  const fallbackProject = {
-    title: "National Health Mission CSR Grant",
-    amount: "₹25,00,000",
-    deadline: "Oct 30, 2026",
-    category: "Health & Sanitization",
-    location: "Pan India",
-    status: "Open",
-    eligibility: [
-      "Registered NGO (Trust/Society/Sec 8)",
-      "Valid 80G & 12A registration",
-      "At least 3 years of audited financials",
-      "Previous experience in health projects"
-    ],
-    fullDetails: "This grant is provided by the corporate partners of the National Health Mission to support primary healthcare initiatives in rural districts. The focus is on maternal health, infant nutrition, and sanitation awareness programs.",
-    image: "https://images.unsplash.com/photo-1584820927498-cdf52ee2ff4b?q=80&w=2070&auto=format&fit=crop"
-  };
-
-  const project: any = isDemo ? fallbackProject : await getDocumentBySlug("liveProjects", slug);
+  const project: any = await getDocumentBySlug("projects", slug);
 
   if (!project) {
     notFound();

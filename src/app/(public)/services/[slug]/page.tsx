@@ -3,11 +3,7 @@ import { CheckCircle, ArrowRight, Shield, Award, Users } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
-  return [
-    { slug: "ngo-registration" }
-  ];
-}
+export const dynamic = "force-dynamic";
 
 export default async function ServiceDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
