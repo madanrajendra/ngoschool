@@ -8,8 +8,8 @@ import { Lock, Mail, Loader2, ShieldCheck } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function AdminLoginPage() {
-  const [email, setEmail] = useState("rajesh@ngoschool.com");
-  const [password, setPassword] = useState("Rajesh@12@34");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
