@@ -13,7 +13,7 @@ export default function GalleryPage() {
   useEffect(() => {
     async function fetchGallery() {
       try {
-        const data = await getCollection("media", "createdAt");
+        const data = await getCollection("media", "createdAt") as any[];
         setImages(data);
       } catch (error) {
         console.error("Gallery fetch failed:", error);

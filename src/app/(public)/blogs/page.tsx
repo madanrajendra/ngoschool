@@ -13,9 +13,9 @@ export default function BlogPage() {
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        const data = await getCollection("blogs", "createdAt");
+        const data: any = await getCollection("blogs", "createdAt");
         // Only show published blogs on public site
-        setBlogs(data.filter(blog => blog.status === 'published'));
+        setBlogs(data.filter((blog: any) => blog.status === 'published'));
       } catch (error) {
         console.error("Failed to fetch blogs:", error);
       } finally {

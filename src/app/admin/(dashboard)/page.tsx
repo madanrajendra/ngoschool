@@ -22,8 +22,8 @@ export default function AdminDashboard() {
     async function fetchData() {
       try {
         const [blogData, enquiryData] = await Promise.all([
-          getCollection("blogs", "createdAt"),
-          getCollection("enquiries", "createdAt")
+          getCollection("blogs", "createdAt") as Promise<any[]>,
+          getCollection("enquiries", "createdAt") as Promise<any[]>
         ]);
         setBlogs(blogData);
         setEnquiries(enquiryData);
