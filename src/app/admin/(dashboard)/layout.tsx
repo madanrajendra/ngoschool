@@ -19,6 +19,8 @@ import ProtectedRoute from "@/components/layout/ProtectedRoute";
 
 const menuItems = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { name: "Live Projects", href: "/admin/live-projects", icon: Briefcase },
+  { name: "Services", href: "/admin/services", icon: Users },
   { name: "Enquiries", href: "/admin/enquiries", icon: MessageSquare },
   { name: "Blogs", href: "/admin/blogs", icon: FileText },
   { name: "Media", href: "/admin/media", icon: ImageIcon },

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search, Loader2 } from "lucide-react";
 import { getCollection } from "@/lib/firebase/services";
+import { CORE_SERVICES } from "@/lib/data/services";
 
 export default function ServicesPage() {
   const [services, setServices] = useState<any[]>([]);
@@ -13,10 +14,22 @@ export default function ServicesPage() {
   useEffect(() => {
     async function fetchServices() {
       try {
-        const data = await getCollection("services", "createdAt");
-        setServices(data);
+        const firebaseData = await getCollection("services", "createdAt");
+        
+        // Merge firebase services with core services, avoiding duplicates by slug
+        const coreServicesWithIds = CORE_SERVICES.map(s => ({ ...s, id: s.slug }));
+        const combined = [...firebaseData];
+        
+        coreServicesWithIds.forEach(core => {
+          if (!combined.find(s => s.slug === core.slug)) {
+            combined.push(core);
+          }
+        });
+
+        setServices(combined);
       } catch (error) {
         console.error("Failed to fetch services:", error);
+        setServices(CORE_SERVICES);
       } finally {
         setLoading(false);
       }
@@ -26,7 +39,7 @@ export default function ServicesPage() {
 
   const filteredServices = services.filter(service => 
     service.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    service.shortDescription?.toLowerCase().includes(searchTerm.toLowerCase())
+    (service.shortDescription || service.description || "")?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (

@@ -1,5 +1,6 @@
 import { getDocumentBySlug } from "@/lib/firebase/services";
-import { CheckCircle, ArrowRight, Shield, Award, Users } from "lucide-react";
+import { CheckCircle, ArrowRight, Shield, Award, Users, Briefcase, FileText, Target } from "lucide-react";
+import { CORE_SERVICES } from "@/lib/data/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -9,25 +10,10 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
   const { slug } = await params;
   const service = await getDocumentBySlug("services", slug);
 
-  // Fallback for demo if not in firestore
-  const fallbackService = {
-    title: "NGO Registration Services",
-    fullDescription: "We provide comprehensive registration services for all types of non-profit organizations in India. Whether you want to start a Trust, a Society, or a Section 8 Company, our experts guide you through the entire legal process, ensuring compliance with state and central regulations.",
-    benefits: [
-      "Expert legal documentation by CA/CS professionals",
-      "End-to-end guidance on choosing the right structure",
-      "PAN & TAN application included",
-      "Support for Niti Aayog (Darpan) portal registration",
-      "Transparent fee structure with no hidden costs"
-    ],
-    faqs: [
-      { q: "How long does it take?", a: "Trust registration takes 10-15 days, while Section 8 Company takes 20-30 days." },
-      { q: "What documents are required?", a: "ID proof, Address proof, Rent agreement/property documents for office, and photos of members." }
-    ],
-    image: "/images/registration.png"
-  };
+  // Use core service as fallback if not in firestore
+  const fallback = CORE_SERVICES.find(s => s.slug === slug);
 
-  const data: any = service || (slug === "ngo-registration" ? fallbackService : null);
+  const data: any = service || fallback;
 
   if (!data) {
     notFound();

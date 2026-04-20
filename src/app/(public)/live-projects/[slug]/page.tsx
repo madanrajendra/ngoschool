@@ -1,4 +1,4 @@
-import { getDocumentBySlug } from "@/lib/firebase/services";
+import { getDocument } from "@/lib/firebase/services";
 import { IndianRupee, Calendar, MapPin, CheckCircle, ArrowRight, Share2, Award, Users } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export default async function ProjectDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project: any = await getDocumentBySlug("projects", slug);
+  const project: any = await getDocument("projects", slug);
 
   if (!project) {
     notFound();

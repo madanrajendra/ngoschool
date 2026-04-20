@@ -16,17 +16,23 @@ import Link from "next/link";
 export default function AdminDashboard() {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [enquiries, setEnquiries] = useState<any[]>([]);
+  const [projects, setProjects] = useState<any[]>([]);
+  const [services, setServices] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [blogData, enquiryData] = await Promise.all([
+        const [blogData, enquiryData, projectData, serviceData] = await Promise.all([
           getCollection("blogs", "createdAt") as Promise<any[]>,
-          getCollection("enquiries", "createdAt") as Promise<any[]>
+          getCollection("enquiries", "createdAt") as Promise<any[]>,
+          getCollection("projects", "createdAt") as Promise<any[]>,
+          getCollection("services", "createdAt") as Promise<any[]>
         ]);
         setBlogs(blogData);
         setEnquiries(enquiryData);
+        setProjects(projectData);
+        setServices(serviceData);
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
       } finally {
@@ -38,6 +44,8 @@ export default function AdminDashboard() {
 
   const stats = [
     { title: "Total Enquiries", value: enquiries.length.toString(), icon: MessageSquare, color: "bg-blue-500" },
+    { title: "Live Grants", value: projects.length.toString(), icon: CheckCircle, color: "bg-green-500" },
+    { title: "Our Services", value: services.length.toString(), icon: CheckCircle, color: "bg-orange-500" },
     { title: "Active Blogs", value: blogs.filter(b => b.status === "published").length.toString(), icon: FileText, color: "bg-purple-500" },
   ];
 
@@ -116,6 +124,10 @@ export default function AdminDashboard() {
           <div className="bg-primary p-10 rounded-[40px] text-white space-y-6 shadow-xl shadow-primary/20">
             <h3 className="text-2xl font-bold leading-tight">Quick Actions</h3>
             <div className="space-y-4">
+              <Link href="/admin/live-projects" className="w-full bg-white/10 hover:bg-white/20 text-white font-bold p-4 rounded-2xl border border-white/20 transition-all flex items-center justify-center space-x-3">
+                <CheckCircle className="w-5 h-5" />
+                <span>Manage Grants</span>
+              </Link>
               <Link href="/admin/blogs/new" className="w-full bg-white/10 hover:bg-white/20 text-white font-bold p-4 rounded-2xl border border-white/20 transition-all flex items-center justify-center space-x-3">
                 <FileText className="w-5 h-5" />
                 <span>Publish New Blog</span>
