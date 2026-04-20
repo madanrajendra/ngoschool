@@ -23,7 +23,7 @@ export default function HomePage() {
     async function fetchData() {
       try {
         // Fetch Services
-        const firebaseData = await getCollection("services", "createdAt");
+        const firebaseData = await getCollection("services", "createdAt") as any[];
         const combined = [...firebaseData];
         CORE_SERVICES.forEach(core => {
           if (!combined.find(s => s.slug === core.slug)) {

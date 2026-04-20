@@ -14,7 +14,7 @@ export default function ServicesPage() {
   useEffect(() => {
     async function fetchServices() {
       try {
-        const firebaseData = await getCollection("services", "createdAt");
+        const firebaseData = await getCollection("services", "createdAt") as any[];
         
         // Merge firebase services with core services, avoiding duplicates by slug
         const coreServicesWithIds = CORE_SERVICES.map(s => ({ ...s, id: s.slug }));
