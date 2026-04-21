@@ -98,8 +98,8 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <h4 className="text-xl font-bold">Email Us</h4>
                   <p className="text-slate-300 leading-relaxed">
-                    <a href="mailto:rajesh@ngoschool.com" className="hover:text-primary transition-colors">
-                      rajesh@ngoschool.com
+                    <a href="mailto:Help@ngoschool.com" className="hover:text-primary transition-colors">
+                      Help@ngoschool.com
                     </a>
                   </p>
                 </div>
