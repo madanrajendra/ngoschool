@@ -58,10 +58,13 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Contact Us</h3>
             <ul className="space-y-4">
-
+              <li className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <span>B1/3, matiala road, nanahe park,<br/>Delhi 110059</span>
+              </li>
               <li className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-primary" />
-                <span>Dwarka Mor, Delhi, India</span>
+                <Mail className="w-5 h-5 text-primary" />
+                <a href="mailto:rajesh@ngoschool.com" className="hover:text-primary transition-colors">rajesh@ngoschool.com</a>
               </li>
             </ul>
           </div>

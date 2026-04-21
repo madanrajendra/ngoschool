@@ -81,14 +81,14 @@ export default function SettingsPage() {
                 <label className="text-sm font-bold text-slate-700">Email Address</label>
                 <div className="relative group">
                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-secondary transition-colors" />
-                   <input type="email" defaultValue="" className="w-full bg-slate-50 border border-slate-100 rounded-xl px-12 py-3 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all" />
+                   <input type="email" defaultValue="rajesh@ngoschool.com" className="w-full bg-slate-50 border border-slate-100 rounded-xl px-12 py-3 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-slate-700">Office Location</label>
                 <div className="relative group">
                    <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-secondary transition-colors" />
-                   <input type="text" defaultValue="Dwarka Mor, Delhi" className="w-full bg-slate-50 border border-slate-100 rounded-xl px-12 py-3 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all" />
+                   <input type="text" defaultValue="B1/3, matiala road, nanahe park, Delhi 110059" className="w-full bg-slate-50 border border-slate-100 rounded-xl px-12 py-3 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary transition-all" />
                 </div>
               </div>
            </div>

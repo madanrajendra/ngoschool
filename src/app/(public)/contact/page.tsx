@@ -75,17 +75,34 @@ export default function ContactPage() {
 
 
 
-            <div className="p-8 bg-slate-900 text-white rounded-[40px] flex items-start space-x-6 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/40 transition-colors" />
-              <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-6 h-6" />
+            <div className="space-y-6">
+              <div className="p-8 bg-slate-900 text-white rounded-[40px] flex items-start space-x-6 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/40 transition-colors" />
+                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="text-xl font-bold">Head Office</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    B1/3, matiala road, nanahe park,<br />
+                    Delhi 110059
+                  </p>
+                </div>
               </div>
-              <div className="space-y-2">
-                <h4 className="text-xl font-bold">Visit Our Office</h4>
-                <p className="text-slate-300 leading-relaxed">
-                  Dwarka Mor Metro Station, Near Pillar 780,<br />
-                  New Delhi, Delhi 110059, India
-                </p>
+
+              <div className="p-8 bg-slate-900 text-white rounded-[40px] flex items-start space-x-6 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/40 transition-colors" />
+                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="text-xl font-bold">Email Us</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    <a href="mailto:rajesh@ngoschool.com" className="hover:text-primary transition-colors">
+                      rajesh@ngoschool.com
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
