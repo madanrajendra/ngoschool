@@ -15,23 +15,38 @@ import {
 
 // Generic fetcher
 export async function getCollection(colName: string, orderField: string = "createdAt") {
-  const colRef = collection(db, colName);
-  const q = query(colRef, orderBy(orderField, "desc"));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  try {
+    const colRef = collection(db, colName);
+    const q = query(colRef, orderBy(orderField, "desc"));
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  } catch (error) {
+    console.error(`Error fetching collection ${colName}:`, error);
+    return []; // Return empty array instead of throwing
+  }
 }
 
 export async function getDocument(colName: string, id: string) {
-  const docRef = doc(db, colName, id);
-  const snapshot = await getDoc(docRef);
-  return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
+  try {
+    const docRef = doc(db, colName, id);
+    const snapshot = await getDoc(docRef);
+    return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
+  } catch (error) {
+    console.error(`Error fetching document ${id} from ${colName}:`, error);
+    return null;
+  }
 }
 
 export async function getDocumentBySlug(colName: string, slug: string) {
-  const colRef = collection(db, colName);
-  const q = query(colRef, where("slug", "==", slug));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.length > 0 ? { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } : null;
+  try {
+    const colRef = collection(db, colName);
+    const q = query(colRef, where("slug", "==", slug));
+    const snapshot = await getDocs(q);
+    return snapshot.docs.length > 0 ? { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } : null;
+  } catch (error) {
+    console.error(`Error fetching document with slug ${slug} from ${colName}:`, error);
+    return null;
+  }
 }
 
 // Add/Update/Delete Helpers
