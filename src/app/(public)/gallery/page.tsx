@@ -69,6 +69,9 @@ export default function GalleryPage() {
                     src={image.url} 
                     alt={image.name} 
                     className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1542601906990-b4d3fb773b09?q=80&w=800&auto=format&fit=crop";
+                    }}
                   />
                   <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <div className="p-4 bg-white/20 backdrop-blur-md rounded-full text-white border border-white/30">

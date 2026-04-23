@@ -20,7 +20,7 @@ const slides = [
     link: "/contact"
   },
   {
-    image: "/images/ngo_team_meeting.png",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
     label: "EXPERT ADVISORY",
     heading: "Your Vision, Our Professional Support",
     subtext: "Transforming social change through specialized consulting and dedicated relationship management.",

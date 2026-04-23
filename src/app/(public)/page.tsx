@@ -127,9 +127,12 @@ export default function HomePage() {
                 className="group relative h-[420px] rounded-[48px] overflow-hidden bg-slate-900 shadow-2xl"
               >
                 <img 
-                  src={service.image} 
+                  src={service.image || "https://images.unsplash.com/photo-1554224155-1696413575b8?q=80&w=800&auto=format&fit=crop"} 
                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-1000 group-hover:opacity-30" 
                   alt={service.title} 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1554224155-1696413575b8?q=80&w=800&auto=format&fit=crop";
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
                 
@@ -198,8 +201,15 @@ export default function HomePage() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-white/5 border border-white/10 rounded-[48px] p-8 hover:bg-white/10 transition-all group flex flex-col h-full"
               >
-                <div className="h-48 rounded-[32px] overflow-hidden mb-8 relative">
-                   <img src={project.image || "/images/grant1.png"} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={project.title} />
+                <div className="h-48 rounded-[32px] overflow-hidden mb-8 relative bg-slate-100">
+                   <img 
+                     src={project.image || "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop"} 
+                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                     alt={project.title} 
+                     onError={(e) => {
+                       (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop";
+                     }}
+                   />
                    <div className="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full">Open now</div>
                 </div>
                 <h4 className="text-2xl font-bold mb-4 line-clamp-2">{project.title}</h4>
