@@ -1,9 +1,14 @@
-import { getDocumentBySlug } from "@/lib/firebase/services";
+import { getDocumentBySlug, getCollection } from "@/lib/firebase/services";
 import { Calendar, User, Share2, ArrowLeft, Clock } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  const blogs = await getCollection("blogs");
+  return blogs.map((blog: any) => ({
+    slug: blog.slug,
+  }));
+}
 
 export default async function BlogDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

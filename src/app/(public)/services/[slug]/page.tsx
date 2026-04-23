@@ -1,10 +1,22 @@
-import { getDocumentBySlug } from "@/lib/firebase/services";
+import { getDocumentBySlug, getCollection } from "@/lib/firebase/services";
 import { CheckCircle, ArrowRight, Shield, Award, Users, Briefcase, FileText, Target } from "lucide-react";
 import { CORE_SERVICES } from "@/lib/data/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  const services = await getCollection("services");
+  const slugs = services.map((s: any) => ({ slug: s.slug }));
+  
+  // Also include core services
+  CORE_SERVICES.forEach(s => {
+    if (!slugs.find(existing => existing.slug === s.slug)) {
+      slugs.push({ slug: s.slug });
+    }
+  });
+  
+  return slugs;
+}
 
 export default async function ServiceDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

@@ -1,9 +1,14 @@
-import { getDocument } from "@/lib/firebase/services";
+import { getDocument, getCollection } from "@/lib/firebase/services";
 import { IndianRupee, Calendar, MapPin, CheckCircle, ArrowRight, Share2, Award, Users } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  const projects = await getCollection("projects");
+  return projects.map((p: any) => ({
+    slug: p.id,
+  }));
+}
 
 export default async function ProjectDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
