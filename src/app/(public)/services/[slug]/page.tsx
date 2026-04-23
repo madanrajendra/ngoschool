@@ -3,6 +3,7 @@ import { CheckCircle, ArrowRight, Shield, Award, Users, Briefcase, FileText, Tar
 import { CORE_SERVICES } from "@/lib/data/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SafeImage from "@/components/ui/SafeImage";
 
 export async function generateStaticParams() {
   const services = await getCollection("services");
@@ -50,13 +51,11 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
             </div>
             <div className="w-full md:w-[450px] flex-shrink-0">
                <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white p-2 bg-slate-100">
-                  <img 
-                    src={data.image || "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"} 
+                  <SafeImage 
+                    src={data.image} 
+                    fallbackSrc="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
                     alt={data.title} 
                     className="w-full h-[300px] object-cover rounded-[32px]"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop";
-                    }}
                   />
                </div>
             </div>

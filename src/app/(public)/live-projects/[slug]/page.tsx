@@ -2,6 +2,7 @@ import { getDocument, getCollection } from "@/lib/firebase/services";
 import { IndianRupee, Calendar, MapPin, CheckCircle, ArrowRight, Share2, Award, Users } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SafeImage from "@/components/ui/SafeImage";
 
 export async function generateStaticParams() {
   const projects = await getCollection("projects");
@@ -56,13 +57,11 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
         <div className="container-custom grid grid-cols-1 lg:grid-cols-3 gap-16">
            <div className="lg:col-span-2 space-y-12">
               <div className="rounded-[40px] overflow-hidden shadow-2xl h-[400px] bg-slate-100">
-                 <img 
-                   src={project.image || "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1200&auto=format&fit=crop"} 
+                 <SafeImage 
+                   src={project.image} 
+                   fallbackSrc="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1200&auto=format&fit=crop"
                    alt={project.title} 
                    className="w-full h-full object-cover"
-                   onError={(e) => {
-                     (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1200&auto=format&fit=crop";
-                   }}
                  />
               </div>
 
