@@ -49,8 +49,15 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
               <Link href="/contact" className="btn-primary inline-block">Enquire for this Service</Link>
             </div>
             <div className="w-full md:w-[450px] flex-shrink-0">
-               <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white p-2 bg-white">
-                  <img src={data.image} alt={data.title} className="w-full h-[300px] object-cover rounded-[32px]" />
+               <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white p-2 bg-slate-100">
+                  <img 
+                    src={data.image || "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"} 
+                    alt={data.title} 
+                    className="w-full h-[300px] object-cover rounded-[32px]"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop";
+                    }}
+                  />
                </div>
             </div>
           </div>

@@ -55,8 +55,15 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
       <section className="section-padding bg-white">
         <div className="container-custom grid grid-cols-1 lg:grid-cols-3 gap-16">
            <div className="lg:col-span-2 space-y-12">
-              <div className="rounded-[40px] overflow-hidden shadow-2xl h-[400px]">
-                 <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+              <div className="rounded-[40px] overflow-hidden shadow-2xl h-[400px] bg-slate-100">
+                 <img 
+                   src={project.image || "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1200&auto=format&fit=crop"} 
+                   alt={project.title} 
+                   className="w-full h-full object-cover"
+                   onError={(e) => {
+                     (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1200&auto=format&fit=crop";
+                   }}
+                 />
               </div>
 
               <div className="space-y-6">

@@ -166,8 +166,15 @@ export default function LiveProjectsPage() {
                    transition={{ delay: i * 0.1 }}
                    className="group bg-white rounded-[56px] p-8 border border-slate-100 hover:shadow-[0_32px_80px_-20px_rgba(0,0,0,0.12)] transition-all flex flex-col h-full overflow-hidden"
                  >
-                   <div className="h-60 rounded-[40px] overflow-hidden mb-10 relative">
-                     <img src={project.image || "/images/grant1.png"} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                   <div className="h-60 rounded-[40px] overflow-hidden mb-10 relative bg-slate-50">
+                     <img 
+                       src={project.image || "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop"} 
+                       alt={project.title} 
+                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                       onError={(e) => {
+                         (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop";
+                       }}
+                     />
                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                      <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-black uppercase tracking-widest px-5 py-2.5 rounded-full shadow-2xl">
                        {project.status || 'Active'}
@@ -270,4 +277,3 @@ export default function LiveProjectsPage() {
     </div>
   );
 }
-

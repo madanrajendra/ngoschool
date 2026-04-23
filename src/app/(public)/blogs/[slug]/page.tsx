@@ -59,11 +59,14 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
              </div>
           </div>
 
-          <div className="rounded-[40px] overflow-hidden shadow-2xl mb-16 h-[500px]">
+          <div className="rounded-[40px] overflow-hidden shadow-2xl mb-16 h-[500px] bg-slate-100">
              <img 
                src={data.featuredImage || data.image || "https://images.unsplash.com/photo-1454165833767-131f3693006d?q=80&w=2070&auto=format&fit=crop"} 
                alt={data.title} 
                className="w-full h-full object-cover" 
+               onError={(e) => {
+                 (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1454165833767-131f3693006d?q=80&w=2070&auto=format&fit=crop";
+               }}
              />
           </div>
 

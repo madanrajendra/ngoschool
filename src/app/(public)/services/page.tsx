@@ -82,6 +82,9 @@ export default function ServicesPage() {
                       src={service.image || "https://images.unsplash.com/photo-1554224155-1696413575b8?q=80&w=800&auto=format&fit=crop"} 
                       alt={service.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1554224155-1696413575b8?q=80&w=800&auto=format&fit=crop";
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                       <span className="text-white font-semibold">View Details</span>
