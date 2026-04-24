@@ -63,7 +63,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
           <div className="rounded-[40px] overflow-hidden shadow-2xl mb-16 h-[500px] bg-slate-100">
              <SafeImage 
                src={data.featuredImage || data.image} 
-               fallbackSrc="https://images.unsplash.com/photo-1454165833767-131f3693006d?q=80&w=2070&auto=format&fit=crop"
+               fallbackSrc="/images/hero.png"
                alt={data.title} 
                className="w-full h-full object-cover" 
              />

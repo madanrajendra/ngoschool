@@ -8,15 +8,18 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 export default function SafeImage({ src, fallbackSrc, alt, className, ...props }: SafeImageProps) {
   const [imgSrc, setImgSrc] = useState(src);
+  const [hasError, setHasError] = useState(false);
 
   return (
     <img
       {...props}
-      src={imgSrc || fallbackSrc}
+      src={hasError ? fallbackSrc : (imgSrc || fallbackSrc)}
       alt={alt}
       className={className}
       onError={() => {
-        setImgSrc(fallbackSrc);
+        if (!hasError) {
+          setHasError(true);
+        }
       }}
     />
   );

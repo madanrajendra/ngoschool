@@ -59,7 +59,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
               <div className="rounded-[40px] overflow-hidden shadow-2xl h-[400px] bg-slate-100">
                  <SafeImage 
                    src={project.image} 
-                   fallbackSrc="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1200&auto=format&fit=crop"
+                   fallbackSrc="/images/hero.png"
                    alt={project.title} 
                    className="w-full h-full object-cover"
                  />

@@ -47,13 +47,26 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
               </nav>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">{data.title}</h1>
               <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">{data.fullDescription}</p>
-              <Link href="/contact" className="btn-primary inline-block">Enquire for this Service</Link>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="tel:9511409795"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-primary text-primary font-semibold hover:bg-primary/10 transition-colors"
+                >
+                  Call Us Now
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors"
+                >
+                  Enquiry Now
+                </Link>
+              </div>
             </div>
             <div className="w-full md:w-[450px] flex-shrink-0">
                <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white p-2 bg-slate-100">
                   <SafeImage 
                     src={data.image} 
-                    fallbackSrc="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+                    fallbackSrc="/images/hero.png"
                     alt={data.title} 
                     className="w-full h-[300px] object-cover rounded-[32px]"
                   />

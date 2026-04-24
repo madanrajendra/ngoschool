@@ -2,6 +2,46 @@ import { Briefcase, Shield, FileText, Users, Target, ArrowRight } from "lucide-r
 
 export const CORE_SERVICES = [
   { 
+    id: "trust-registration",
+    slug: "trust-registration",
+    title: "TRUST REGISTRATION",
+    shortDescription: "Start your NGO legally with our professional Trust Registration service in India. We help you register a public charitable trust under the Indian Trusts framework with complete legal support.",
+    fullDescription: "Launch your non-profit journey the right way with end-to-end trust registration support. From trust deed drafting to documentation, PAN, bank account setup, and 12A/80G readiness, we handle each compliance step so your NGO starts on a legally strong foundation.",
+    icon: "Briefcase",
+    image: "/images/trust-registration.png",
+    benefits: [
+      "Trust deed drafting and legal review",
+      "Name approval and documentation support",
+      "Registrar filing and process coordination",
+      "PAN and bank account assistance",
+      "12A and 80G registration readiness guidance"
+    ],
+    faqs: [
+      { q: "How many trustees are required?", a: "The requirement can vary by state, but generally at least two to three trustees are needed." },
+      { q: "How long does trust registration take?", a: "It usually takes around 10 to 20 working days, depending on state processes and document readiness." }
+    ]
+  },
+  { 
+    id: "ngo-website-development",
+    slug: "ngo-website-development",
+    title: "NGO Website Development",
+    shortDescription: "Build a professional NGO website to showcase your mission, projects, and impact with donation-ready and mobile-friendly design.",
+    fullDescription: "We create modern, secure, and conversion-focused websites for NGOs. From storytelling pages and live projects to enquiry forms and SEO setup, our team delivers a complete digital presence that helps build donor trust and improve outreach.",
+    icon: "FileText",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
+    benefits: [
+      "Custom NGO-focused website design",
+      "Mobile responsive and fast-loading pages",
+      "Donation/enquiry form integration",
+      "SEO-friendly structure and content support",
+      "Admin-friendly content update setup"
+    ],
+    faqs: [
+      { q: "Can you include donation and enquiry forms?", a: "Yes, we can integrate donation and enquiry workflows based on your requirements." },
+      { q: "Will the website work on mobile?", a: "Yes, all websites are fully responsive across mobile, tablet, and desktop devices." }
+    ]
+  },
+  {
     id: "ngo-registration",
     slug: "ngo-registration",
     title: "NGO Registration Services", 

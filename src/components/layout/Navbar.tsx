@@ -42,7 +42,7 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
               N
             </div>
-            <span className="text-lg sm:text-2xl font-bold tracking-tight text-white">
+            <span className="text-base sm:text-xl font-bold tracking-tight text-white">
               NGO School
             </span>
           </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-bold uppercase tracking-widest transition-all hover:text-primary relative group text-white/90"
+                className="text-xs font-bold uppercase tracking-wide transition-all hover:text-primary relative group text-white/90"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
@@ -62,7 +62,7 @@ const Navbar = () => {
             <Link 
               href="/contact" 
               className={cn(
-                "btn-primary px-8 py-3 rounded-full font-bold uppercase tracking-wider text-xs transition-all",
+                "btn-primary px-8 py-3 rounded-full font-bold uppercase tracking-wide text-[11px] transition-all",
                 scrolled 
                   ? "bg-primary shadow-lg shadow-primary/20" 
                   : "bg-white text-primary border-transparent hover:bg-primary hover:text-white"

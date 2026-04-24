@@ -65,7 +65,7 @@ export default function HeroSlider() {
             </div>
 
             {/* Content Section */}
-            <div className="container-custom relative z-20 h-full flex items-center pt-12 sm:pt-0">
+            <div className="container-custom relative z-20 h-full flex items-center pt-24 sm:pt-28 md:pt-32 lg:pt-36">
               <div className="w-full max-w-4xl space-y-4 sm:space-y-6 md:space-y-8">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export default function HeroSlider() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-col sm:flex-row gap-4 pt-2 sm:pt-4"
+                  className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
                 >
                   <Link
                     href={slide.link}
@@ -114,6 +114,12 @@ export default function HeroSlider() {
                     className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold py-3 px-8 sm:py-4 sm:px-10 text-center rounded-2xl hover:bg-white/20 transition-all text-base sm:text-lg"
                   >
                     About Us
+                  </Link>
+                  <Link
+                    href="/blogs"
+                    className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold py-3 px-8 sm:py-4 sm:px-10 text-center rounded-2xl hover:bg-white/20 transition-all text-base sm:text-lg"
+                  >
+                    Blogs
                   </Link>
                 </motion.div>
               </div>

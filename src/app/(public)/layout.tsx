@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import PreFooterCta from "@/components/layout/PreFooterCta";
 
 export default function PublicLayout({
   children,
@@ -12,6 +13,7 @@ export default function PublicLayout({
       <main className="flex-grow">
         {children}
       </main>
+      <PreFooterCta />
       <Footer />
     </div>
   );
